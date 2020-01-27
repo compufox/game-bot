@@ -6,7 +6,7 @@
   :license  "NPLv1+"
   :version "1"
   :serial t
-  :depends-on (#:glacier)
+  :depends-on (#:glacier #:with-user-abort)
   :components ((:file "game-bot"))
   :build-operation "program-op"
   :build-pathname "bin/game-bot"
