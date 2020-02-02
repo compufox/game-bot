@@ -14,13 +14,13 @@
 (defun main ()
   (handler-case
       (with-user-abort
-	  (run-bot (make-instance 'mastodon-bot
+	  (run-bot ((make-instance 'mastodon-bot
 				  :config-file "bot.config"
-				  :on-notification #'make-reply)
-		   (after-every ((random 180) :minutes)
-				(post "the Game"
-				      :cw "cognitohazard"
-				      :visibility :public))))
+				  :on-notification #'make-reply))
+	    (after-every ((random 180) :minutes)
+			 (post "the Game"
+			       :cw "cognitohazard"
+			       :visibility :public))))
     (user-abort ()
       (format t "shutting down~%"))
     (error (e)
